@@ -14,7 +14,7 @@ addParameters({
     theme: create({
       base: 'light',
       brandTitle: 'DoobooUI',
-      brandUrl: 'https://necolas.github.io/react-native-web',
+      brandUrl: 'https://s-ong-c.github.io/dooboo-ui',
       // To control appearance:
       // brandImage: 'http://url.of/some.svg',
     }),
