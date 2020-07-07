@@ -24,3 +24,7 @@ storybook
 
 # Coverage
 coverage
+
+# docs
+/docs/.expo/*
+/docs/node_modules/
