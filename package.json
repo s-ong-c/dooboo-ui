@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",
+    "fbjs": "^1.0.0",
     "react-native-svg": "^12.1.0"
   },
   "devDependencies": {

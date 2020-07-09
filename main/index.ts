@@ -2,6 +2,7 @@ import Accordion from './Accordion';
 import Button from './Button';
 import ButtonGroup from './ButtonGroup';
 import EditText from './EditText';
+import HoverAction from './HoverAction';
 import LoadingIndicator from './LoadingIndicator';
 import Slider from './Slider';
 import SwitchToggle from './SwitchToggle';
@@ -17,4 +18,5 @@ export {
   LoadingIndicator,
   SwitchToggle,
   Slider,
+  HoverAction,
 };

@@ -5,9 +5,10 @@ import {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
+import React, { useRef } from 'react';
 
-import React from 'react';
 import styled from 'styled-components/native';
+import { useHover } from '../HoverAction/hooks';
 
 const StyledButton = styled.View`
   align-self: center;
@@ -49,6 +50,7 @@ interface Props {
   activeOpacity?: number;
   text?: string;
   touchableOpacityProps?: TouchableOpacityProps;
+  isHoverAble?: boolean;
 }
 
 function Button(props: Props): React.ReactElement {
@@ -68,8 +70,10 @@ function Button(props: Props): React.ReactElement {
     activeOpacity,
     onPress,
     touchableOpacityProps,
+    isHoverAble,
   } = props;
-
+  const ref = useRef(null);
+  const isHovered = useHover(ref);
   if (isDisabled) {
     return (
       <StyledDisabled testID={testID} style={[containerStyle, disabledStyle]}>
@@ -86,6 +90,20 @@ function Button(props: Props): React.ReactElement {
       </StyledButton>
     );
   }
+  // if (isHoverAble) {
+  //   return (
+  //     <StyledButton
+  //       ref={ref}
+  //       testID={testID}
+  //       style={[
+  //         containerStyle,
+  //         isHovered && { backgroundColor: 'red' },
+  //         style,
+  //       ]}>
+  //       <ActivityIndicator size="small" color={indicatorColor} />
+  //     </StyledButton>
+  //   );
+  // }
   return (
     <TouchableOpacity
       testID={testID}
@@ -94,7 +112,9 @@ function Button(props: Props): React.ReactElement {
       style={containerStyle}
       delayPressIn={30}
       {...touchableOpacityProps}>
-      <StyledButton style={style}>
+      <StyledButton
+        ref={ref}
+        style={style && isHovered && { backgroundColor: 'red' }}>
         {leftElement || null}
         <StyledText style={textStyle}>{text}</StyledText>
         {rightElement || null}
